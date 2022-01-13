@@ -1,0 +1,26 @@
+*{
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  --primary: rgb(225, 225, 255); 
+  --secondary: rgb(92, 92, 208); 
+  --tertiary: rgb(19, 19, 106); 
+}
+
+.container {
+  width: 100%; 
+  min-height: 100vh; 
+  border: 1px solid blue; 
+  background-color: var(--primary);
+}
+
+.box {
+  background-color: var(--secondary);
+  border-radius: 5px; 
+  display: inline-block; 
+  padding: 10px; 
+  margin: 10px; 
+}
+
