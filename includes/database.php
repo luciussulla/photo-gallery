@@ -23,10 +23,10 @@
         unset($this->connection); 
       }
     }
-
-    public function escape_string($string) {
-      $escaped_string = mysqli_real_escape_string($this->connection, $string); 
-      return $escaped_string; 
+    
+    public function escape_value($string) {
+      $escaped_value = mysqli_real_escape_string($this->connection, $string); 
+      return $escaped_value; 
     }
 
     public function query($query) {

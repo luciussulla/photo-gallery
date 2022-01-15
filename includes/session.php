@@ -9,8 +9,8 @@
         $this->check_login(); 
       }
 
-      function in_logged_in() {
-        return $this->in_logged_in; 
+      function is_logged_in() {
+        return $this->logged_in; 
       }
 
       private function check_login() {
@@ -21,6 +21,20 @@
           unset($this->user_id); 
           $this->logged_in = false; 
         }
+      }
+
+      public function log_in($user) {
+        if($user) {
+          $_SESSION["user_id"] = $user->id; 
+          $this->user_id = $user->id; 
+          $this->is_logged_in = true; 
+        }
+      }
+
+      public function log_out() {
+        unset($this->user_id); 
+        unset($_SESSION["user_id"]); 
+        $this->logged_in = false; 
       }
   }
 

@@ -11,7 +11,7 @@
     if(!empty($msg)) {  
       $output = "<p class=\"message\">{$msg}</p>"; 
     } else {
-      $outpyt = ""; 
+      $output = ""; 
     }
     return $output; 
   }
