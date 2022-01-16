@@ -1,4 +1,4 @@
-<?php require_once('database.php'); // will get skipped 
+<?php require_once(LIB_PATH.DS.'database.php'); // will get skipped 
 // if loaded already
 
 class User {

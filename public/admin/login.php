@@ -1,8 +1,8 @@
 <?php 
-  require_once("../../includes/functions.php"); 
-  require_once("../../includes/session.php");
-  require_once("../../includes/database.php");
-  require_once("../../includes/user.php");
+  require_once("../../includes/initialize.php"); 
+  // require_once("../../includes/session.php");
+  // require_once("../../includes/database.php");
+  // require_once("../../includes/user.php");
 ?>
 
 <?php 
@@ -15,9 +15,7 @@
 if(isset($_POST["submit"])){
   $username = trim($_POST["username"]); 
   $password = trim($_POST["password"]);
-
   // check in db if user exists 
-
   $found_user = User::authenticate($username, $password); 
 
   if($found_user) {
@@ -26,7 +24,6 @@ if(isset($_POST["submit"])){
   } else {
     $message = "User/password combination incorrect."; 
   }
-
 
 } else { // form has not been submitted
   $username = ""; 
