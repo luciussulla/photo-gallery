@@ -57,9 +57,6 @@
     public function insert_id() {
       return mysqli_insert_id($this->connection); 
     }
-
-
-
   }
 
   $database = new MySQLDatabase(); 

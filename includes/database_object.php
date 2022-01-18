@@ -1,52 +1,23 @@
-<?php require_once(LIB_PATH.DS.'database.php'); // will get skipped 
-// if loaded already
+<?php 
 
-class User extends DatabaseObject { 
-  protected static $table_name = 'users'; 
-  public $id; 
-  public $username; 
-  public $password; 
-  public $first_name; 
-  public $last_name; 
+require_once(LIB_PATH.DS.'database.php'); 
 
-  // Unique user model methods 
-  static public function authenticate($username, $password) {
-    global $database; 
-    $username = $database->escape_value($username); 
-    $password = $database->escape_value($password); 
+class DatabaseObject {
 
-    $sql  = "SELECT * FROM users "; 
-    $sql .= "WHERE username = '{$username}' "; 
-    $sql .= "AND password   = '{$password}' "; 
-    $sql .= "LIMIT 1"; 
-
-    $result_array = self::find_by_sql($sql); 
-    return !empty($result_array) ? array_shift($result_array) : false; 
-  }
- 
-  public function full_name() {
-    if(isset($this->first_name) && isset($this->last_name)) {
-      return $this->first_name . " " . $this->last_name; 
-    } else {
-      return ""; 
-    }
-  }
-
-  // Universal methods
 
   public static function find_all() {
     // global $database; 
     // $result_set = $database->query("SELECT * FROM users"); 
-    $sql = "SELECT * FROM ".self::$table_name; 
-    $result_set = self::find_by_sql($sql); 
+    $sql = "SELECT * FROM users"; 
+    $result_set = static::find_by_sql($sql); 
     return $result_set; 
   }
 
   public static function find_by_id($id=0) {
     global $database; 
     // $result_set = $database->query("SELECT * FROM users WHERE id={$id}"); 
-    $sql = "SELECT * FROM " . self::$table_name . " WHERE id={$id}"; 
-    $result_array = self::find_by_sql($sql); 
+    $sql = "SELECT * FROM users WHERE id={$id}"; 
+    $result_array = static::find_by_sql($sql); 
     $user_obj = !empty($result_array) ? array_shift($result_array) : false; 
     return $user_obj; 
     // we return false because later we can say "if we got smthg back" do this ...
@@ -65,7 +36,8 @@ class User extends DatabaseObject {
   }
 
   public static function instantiate($record) {
-    $object = new self; 
+    $class_name = get_called_class(); 
+    $object  = new $class_name; 
     // $object->id =         $record["id"]; 
     // $object->username =   "Jack"; 
     // $object->password =   $record["password"]; 
@@ -83,7 +55,6 @@ class User extends DatabaseObject {
       $object_vars = get_object_vars($this); 
       return array_key_exists($attribute, $object_vars); 
     }   
-
 }
 
-?>
+?> 
