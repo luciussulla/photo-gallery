@@ -5,7 +5,7 @@
   }
   // handle what happens if sb clicked the clear the file link
   $log_route = SITE_ROOT.DS."logs".DS."logfile.txt";
-   
+
   if(isset($_GET["clear"])) {
       if($_GET['clear']==true) {
       file_put_contents($log_route, ""); 
@@ -23,8 +23,6 @@
 <p><a href="../logs/logfile.php&clear=true">clear the log file</a></p>
 
 <?php 
-
-
   if(file_exists($log_route) && is_readable($log_route)) {
     $output = ""; 
     if($file_handle = fopen($log_route, 'r')) {
