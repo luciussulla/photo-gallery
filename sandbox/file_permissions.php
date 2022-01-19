@@ -1,5 +1,6 @@
 <?php 
 "abc"; 
+
 // echo fileowner('file_permissions.php'); 
 // $user_id = fileowner('file_permissions.php'); 
 // $owner_array = posix_getpwuid($user_id);

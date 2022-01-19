@@ -1,5 +1,6 @@
 <?php 
   require_once("../includes/initialize.php"); 
+  log_action('action', 'message'); 
 ?>
 
 <?php include_layout_template("header.php") ?>
