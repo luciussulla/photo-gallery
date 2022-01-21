@@ -2,6 +2,8 @@
   require_once(LIB_PATH.DS."config.php"); 
 
   class MySQLDatabase {
+    // includes classes that are based on the connection object; 
+
     private $connection; 
     public $last_query; 
 
