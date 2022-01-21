@@ -6,7 +6,7 @@
 
       function __construct() {
         session_start(); 
-        $this->check_login(); 
+        $this->check_login();
       }
 
       function is_logged_in() {

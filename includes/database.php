@@ -33,12 +33,13 @@
       $this->last_query = $query; 
       $result = mysqli_query($this->connection, $query); 
       if(!$result) {
-        die("Db query failed: " . mysqli_error()); 
+        die("Db query failed: " . mysqli_error($this->connection)); 
       }
       return $result;
     }
 
     public function fetch_array($result) {
+      // unpacking the $result set into an object
       return mysqli_fetch_array($result); 
     }
 
