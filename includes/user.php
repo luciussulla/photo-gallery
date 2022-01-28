@@ -12,7 +12,7 @@ class User extends DatabaseObject {
   public $password; 
   public $first_name; 
   public $last_name; 
-
+  
   // Unique user model methods 
   static public function authenticate($username, $password) {
     global $database; 

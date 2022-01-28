@@ -20,7 +20,7 @@ if(isset($_POST["submit"])){
 
   if($found_user) {
     $session->log_in($found_user); 
-    log_message("Login", $username); 
+    log_action("Login", $username); 
     redirect_to('index.php'); 
   } else {
     $message = "User/password combination incorrect."; 

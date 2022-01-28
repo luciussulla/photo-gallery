@@ -14,7 +14,7 @@
       $user->last_name  = "DSLKSD"; 
       $user->password   = "secretpwd"; 
       $user->create(); 
-
+      
       // UPDATE
       // $user = User::find_by_id(20); 
       // $user->last_name = "gundum2"; 

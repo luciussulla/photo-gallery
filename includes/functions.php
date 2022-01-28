@@ -50,19 +50,49 @@
           // fseek($file_handle, 0, SEEK_END); 
           // $pos = ftell($file_handle);
           fwrite($file_handle, $log); 
+          fwrite($file_handle, "\n"); 
           fclose($file_handle);   
         }
-        // write to log fil
       }
     } else {
       // check if I have permission to the folder - but how? 
       // find absolute location for the file
       if($file_handle = fopen($logfile_route, 'w')) {
         echo "File created";
-        // write to log file 
+        // write to log file We could just recursively write to file
         fclose($file_handle); 
       }
 
     }
+  }
+
+  function list_dir_files($dir_path) {
+    $files = scandir($dir_path); 
+    // var_dump($files); 
+    return $files;
+  }
+
+  function generate_images_array($dir_path, $files) {
+    $images_array = array(); 
+    foreach($files as $key=>$value) {
+      $file_path = $dir_path . DS . $value; 
+      // echo $file_path . "<br/>"; 
+      if(is_file($file_path)) {
+        echo $file_path . "<br/>"; 
+        array_push($images_array, $value); 
+      }
+    }
+    return $images_array; 
+  }
+  
+  function generate_img_html($images_array) {
+    $html_array = array(); 
+    foreach($images_array as $img_path) {
+      $html  = "";
+      $html .= "<img src=\"..\\images\\" . $img_path . "\">";
+      $html_array[] = $html; 
+      echo $html . "<br/>"; 
+    }
+    return $html_array; 
   }
 ?>
