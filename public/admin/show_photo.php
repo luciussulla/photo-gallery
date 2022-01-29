@@ -3,28 +3,27 @@
   // if(!$session->is_logged_in()) {redirect_to("login.php"); }
   // log_action('action', 'message'); 
 ?>
+ <?php $all_photos = PHOTOGRAPH::find_all(); ?> 
 
 <?php include_layout_template("admin_header.php") ?>
-
-  <?php 
-    $all_photos = PHOTOGRAPH::find_all(); 
-  ?> 
+<!-- <?php echo output_message($message) ;?> -->
+ 
 <table cellspacing="0">
  <thead>
    <th>id</th>
    <th>filename</th>
    <th>type</th>
    <th>size</th>
-   <th>caption</th>
+   <th>caption</th>                                                                                                                                
    <tbody>
-   <?php  foreach($all_photos as $photo) {?>
-    <?php echo "<tr>" ?>
-    <td><?php echo $photo->id ?>      </td>
-    <td><?php echo $photo->filename?> </td>
-    <td><?php echo $photo->type?>     </td>
-    <td><?php echo $photo->size?>     </td>
-    <td><?php echo $photo->caption?>  </td>
-    <?php echo "</tr>" ?>
+   <?php  foreach($all_photos as $photo) { ?>
+    <?php echo "<tr>"; ?>
+    <td><img src="../<?php echo $photo->file_path(); ?>" width="100"/></td>
+    <td><?php echo $photo->filename;  ?> </td>
+    <td><?php echo $photo->type; ?>     </td>
+    <td><?php echo $photo->size; ?>     </td>
+    <td><?php echo $photo->caption; ?>  </td>
+    <?php echo "</tr>"; ?>
   <?php } ?>
   </tbody>
 </thead>

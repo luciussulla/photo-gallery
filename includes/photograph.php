@@ -85,5 +85,9 @@
 
       }
     }
+
+    function file_path() {
+      return $this->upload_dir. DS . $this->filename; 
+    }
   }
 ?>
