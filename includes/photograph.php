@@ -89,5 +89,17 @@
     function file_path() {
       return $this->upload_dir. DS . $this->filename; 
     }
+
+    function destroy() {
+      if($this->delete()) {
+        // remove the file
+        $target_path = SITE_ROOT.DS.'public'.DS.$this->file_path(); 
+        return unlink($target_path) ? true : false; 
+      } else {
+        // delete failed 
+        return false; 
+      }
+    }
+ 
   }
 ?>

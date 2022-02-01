@@ -1,9 +1,13 @@
 <?php 
   require_once("../../includes/initialize.php"); 
-  if(!$session->is_logged_in()) {redirect_to("login.php"); }
-  log_action('action', 'message'); 
 ?>
-
 <?php include_layout_template("admin_header.php") ?>
-  <div class="container.php">
+<?php $all = PHOTOGRAPH::find_all(); ?>
+
+<?php foreach($all as $photo): ?>
+<div style="float: left; margin-left:20px;">
+  <img src="..//<?php echo $photo->file_path(); ?>" width="150">
+  <p><?php $photo->caption ?></p>
+</div>
+<?php endforeach; ?>
 <?php include_layout_template("admin_footer.php") ?>

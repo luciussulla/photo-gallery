@@ -4,7 +4,7 @@
       private $logged_in = false; 
       public $user_id; 
       public $message;   
-
+      
       function __construct() {
         session_start(); 
         $this->check_message(); 
