@@ -26,11 +26,10 @@
 
   public static function find_comments_on($photo_id=0) {
     global $database; 
-    $sql = "SELECT * FROM " . self::$table_name;  
-    $sql .= "WHERE photograph_id=" .$database->escape_value($photo_id); 
+    $sql  = "SELECT * FROM " . self::$table_name;  
+    $sql .= " WHERE photograph_id=" .$database->escape_value($photo_id); 
     $sql .= " ORDER BY created ASC"; 
     return parent::find_by_sql($sql); 
   }
-
 }
 ?>

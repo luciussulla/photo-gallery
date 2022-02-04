@@ -32,7 +32,7 @@ class DatabaseObject {
     // returning an array of instantated objects
     return $object_array; 
   }
-
+  
   public static function instantiate($record) {
     $class_name = get_called_class(); 
     $object  = new $class_name; 

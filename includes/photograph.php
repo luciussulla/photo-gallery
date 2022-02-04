@@ -90,6 +90,10 @@
       return $this->upload_dir. DS . $this->filename; 
     }
 
+    public function comments() {
+      return Comment::find_comments_on($this->id); 
+    }
+
     function destroy() {
       if($this->delete()) {
         // remove the file

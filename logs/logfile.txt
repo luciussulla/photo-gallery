@@ -4,3 +4,5 @@
 2022/01/29 15:50:47 | action |  message
 2022/01/29 16:32:58 | action |  message
 2022/01/29 16:38:08 | visiting delete_photo |  Visit delete_photo with id of: 5
+2022/02/04 06:20:17 | Login |  kskoglund
+2022/02/04 08:21:10 | visiting delete_photo |  Visit delete_photo with id of: 5
