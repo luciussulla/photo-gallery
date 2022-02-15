@@ -3,6 +3,15 @@ require_once(LIB_PATH.DS.'database.php');
 
 class DatabaseObject {
 
+  public static function count_all() {
+    global $database; 
+    $sql = "SELECT COUNT(*) FROM " . static::$table_name; 
+    $result = $database->query($sql); 
+    $row= $database->fetch_array($result); 
+    return array_shift($row); 
+
+  }
+
   public static function find_all() {
     // global $database; 
     // $result_set = $database->query("SELECT * FROM users"); 

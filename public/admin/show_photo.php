@@ -14,27 +14,26 @@
    <th>size</th>
    <th>caption</th> 
    <th>Comments</th>  
-   <th>&nbsp;</th>                                                                                                                              
-   <tbody>
-   <?php  foreach($all_photos as $photo): ?>
-    <?php echo "<tr>"; ?>
-    <td><img src="../<?php echo $photo->file_path(); ?>" width="100"/></td>
-    <td><?php echo $photo->filename;  ?> </td>
-    <td><?php echo $photo->type; ?>     </td>
-    <td><?php echo $photo->size; ?>     </td>
-    <td><?php echo $photo->caption; ?>  </td>
-    <td>
-      <a href="comments.php?id=<?php echo $photo->id; ?>">
-        <?php echo count($photo->comments());?> 
-      </a>
-    </td>
-    <td><a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a></td>
-    <?php echo "</tr>"; ?>
-  <?php endforeach; ?>
+   <th>&nbsp;</th>  
+  </thead>                                                                                                                             
+  <tbody>
+    <?php foreach($all_photos as $photo): ?>
+      <?php echo "<tr>"; ?>
+      <td><img src="../<?php echo $photo->file_path(); ?>" width="100"/></td>
+      <td><?php echo $photo->filename;  ?> </td>
+      <td><?php echo $photo->type; ?>     </td>
+      <td><?php echo $photo->size; ?>     </td>
+      <td><?php echo $photo->caption; ?>  </td>
+      <td>
+        <a href="comments.php?id=<?php echo $photo->id; ?>">
+          <?php echo count($photo->comments());?> 
+        </a>
+      </td>
+      <td><a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a></td>
+      <?php echo "</tr>"; ?>
+    <?php endforeach; ?>
   </tbody>
-</thead>
 </table>
 
 <p class="show">Showed Photos</p>
-
 <?php include_layout_template("admin_footer.php") ?>

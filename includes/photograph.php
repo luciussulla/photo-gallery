@@ -78,7 +78,7 @@
           }
            
         } else {
-          // faile
+          // fail
           $this->errors[] = "The file upload failed, possibly due to incorrect permission on the upload folder."; 
           return false; 
         }
@@ -87,7 +87,7 @@
     }
 
     function file_path() {
-      return $this->upload_dir. DS . $this->filename; 
+      return $this->upload_dir . DS . $this->filename; 
     }
 
     public function comments() {
