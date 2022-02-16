@@ -39,3 +39,8 @@ table {
 td, tr {
   padding: 15px; 
 }
+
+/* pagination */ 
+.selected {
+  font-weight: bold;
+}

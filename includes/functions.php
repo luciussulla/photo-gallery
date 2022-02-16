@@ -31,7 +31,6 @@
   }
 
   // LOG FILE 
-
   function write_to_log($action, $message) {
 
   }

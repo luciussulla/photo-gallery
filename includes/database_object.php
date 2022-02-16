@@ -6,10 +6,9 @@ class DatabaseObject {
   public static function count_all() {
     global $database; 
     $sql = "SELECT COUNT(*) FROM " . static::$table_name; 
-    $result = $database->query($sql); 
-    $row= $database->fetch_array($result); 
+    $result_set = $database->query($sql); 
+    $row= $database->fetch_array($result_set); 
     return array_shift($row); 
-
   }
 
   public static function find_all() {
